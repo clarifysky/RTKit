@@ -11,6 +11,7 @@
 		CDB612B51CB77D1E00DD0268 /* RTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDB612AA1CB77D1D00DD0268 /* RTKit.framework */; };
 		CDB612BA1CB77D1E00DD0268 /* RTKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB612B91CB77D1E00DD0268 /* RTKitTests.swift */; };
 		CDB612C51CB77DCB00DD0268 /* RTTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB612C41CB77DCB00DD0268 /* RTTimer.swift */; };
+		CDB612C71CB7B07500DD0268 /* RTNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB612C61CB7B07500DD0268 /* RTNumber.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +32,7 @@
 		CDB612B91CB77D1E00DD0268 /* RTKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTKitTests.swift; sourceTree = "<group>"; };
 		CDB612BB1CB77D1E00DD0268 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CDB612C41CB77DCB00DD0268 /* RTTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RTTimer.swift; sourceTree = "<group>"; };
+		CDB612C61CB7B07500DD0268 /* RTNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RTNumber.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 				CDB612AD1CB77D1D00DD0268 /* RTKit.h */,
 				CDB612AF1CB77D1D00DD0268 /* Info.plist */,
 				CDB612C41CB77DCB00DD0268 /* RTTimer.swift */,
+				CDB612C61CB7B07500DD0268 /* RTNumber.swift */,
 			);
 			path = RTKit;
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDB612C71CB7B07500DD0268 /* RTNumber.swift in Sources */,
 				CDB612C51CB77DCB00DD0268 /* RTTimer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -385,6 +389,7 @@
 				CDB612C01CB77D1E00DD0268 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CDB612C11CB77D1E00DD0268 /* Build configuration list for PBXNativeTarget "RTKitTests" */ = {
 			isa = XCConfigurationList;
@@ -393,6 +398,7 @@
 				CDB612C31CB77D1E00DD0268 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

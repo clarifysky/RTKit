@@ -10,11 +10,13 @@ import Foundation
 
 class RTTimer {
     
-    class func nowGregorianNoPrefix(dateFormatter: String) -> String {
-        let nowDate = NSDate()
-        let formatter = NSDateFormatter()
-        formatter.dateFormat = dateFormatter
-        return formatter.stringFromDate(nowDate)
+    /// Get the timestamp since 1970.
+    class func time() -> Int {
+        let date = NSDate()
+        
+        // You need not set timezone here, because 1970 and current time are both use UTC time.
+        let seconds = date.timeIntervalSince1970;
+        return Int(seconds)
     }
     
     /// Get a time string with specific format from unix time.
@@ -28,46 +30,29 @@ class RTTimer {
         return formatter.stringFromDate(date)
     }
     
-    class func timeIntervalSince1970() -> Int {
-        let date = NSDate()
-        //        var formatter = NSDateFormatter()
-        //        formatter.timeZone = NSTimeZone.localTimeZone()
-        //        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss ZZZ"
-        //        let strDate = formatter.stringFromDate(date)
-        
-        // Why here is correct, because this return the seconds since 1970 and 1970 also use UTC time zone,
-        // so their time zone are same.
-        let seconds = date.timeIntervalSince1970;
-        return Int(seconds)
-    }
-    
-    class func addPreZero(number: Int) -> String {
-        var res = "0"
-        if(number < 10) {
-            res = res + String(number)
-        } else {
-            res = String(number)
-        }
-        return res
-    }
-    
-    
-    class func ymdTime(date: NSDate) -> String {
-        let timeZone = NSTimeZone(name: "Asia/Shanghai")
+    /// Format a given date(NSDate) to string via your format.
+    ///
+    /// - parameter date: The date you want to format.
+    /// - parameter format: Format.
+    /// - parameter timeZone: The time zone you want to used for.
+    class func formatDate(date: NSDate, format: String, timeZone: String = "Asia/Shanghai") -> String {
+        let timeZone = NSTimeZone(name: timeZone)
         let fmt = NSDateFormatter()
-        fmt.dateFormat = "YYYY-MM-dd"
+        fmt.dateFormat = format
         fmt.timeZone = timeZone
         return fmt.stringFromDate(date)
     }
+    
     
     /// Format time string to unix time stamp.
     ///
     /// - parameter timeStr: Time string.
     /// - parameter format: The format of the time string.
-    class  func toUnixTime(timeStr: String, format: String) -> NSTimeInterval {
+    /// - parameter timeZone: The time zone will be used for this parser.
+    class  func toUnixTime(timeStr: String, format: String, timeZone: String = "Asia/Shanghai") -> NSTimeInterval {
         let fmt = NSDateFormatter()
         fmt.dateFormat = format
-        let timeZone = NSTimeZone(name: "Asia/Shanghai")
+        let timeZone = NSTimeZone(name: timeZone)
         fmt.timeZone = timeZone
         let date = fmt.dateFromString(timeStr)!
         return date.timeIntervalSince1970
@@ -89,7 +74,6 @@ extension RTTimer {
             fmt.dateFormat = "MMMdd"
             let date = fmt.stringFromDate(NSDate())
             return date
-            //            return self.monthDateToChineseLunar(date)
         }
         
         class func specificChineseLunarDate(date: NSDate) -> String {
@@ -102,7 +86,6 @@ extension RTTimer {
             fmt.dateFormat = "MMMdd"
             let date = fmt.stringFromDate(date)
             return date
-            //            return self.monthDateToChineseLunar(date)
         }
         
         // Trun month date to Chinese Lunar, need  monthDate style is like: 09-11
