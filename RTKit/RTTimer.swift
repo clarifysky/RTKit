@@ -8,7 +8,7 @@
 
 import Foundation
 
-class RTTimer {
+class RTTime {
     
     /// Get the timestamp since 1970.
     class func time() -> Int {
@@ -60,11 +60,12 @@ class RTTimer {
 }
 
 // Extend DateProc to add Chinese Lunar processing
-extension RTTimer {
+extension RTTime {
     class ChineseLunar {
         static let lunarNumber = ["一", "二", "三", "四", "五", "六", "七", "八", "九", "十"]
         
-        class func nowChineseLunarDate() -> String {
+        /// Lunar date of today.
+        class func lunarDate() -> String {
             let fmt = NSDateFormatter()
             fmt.locale = NSLocale(localeIdentifier: "zh_CN")
             fmt.dateStyle = NSDateFormatterStyle.MediumStyle
@@ -76,7 +77,8 @@ extension RTTimer {
             return date
         }
         
-        class func specificChineseLunarDate(date: NSDate) -> String {
+        /// Lunar date of specific day.
+        class func lunarDate(date: NSDate) -> String {
             let fmt = NSDateFormatter()
             fmt.locale = NSLocale(localeIdentifier: "zh_CN")
             fmt.dateStyle = NSDateFormatterStyle.MediumStyle
@@ -88,14 +90,15 @@ extension RTTimer {
             return date
         }
         
-        // Trun month date to Chinese Lunar, need  monthDate style is like: 09-11
-        class func monthDateToChineseLunar(shortDate: String) -> String {
-            let tmp = shortDate.componentsSeparatedByString("-")
-            let res = RTTimer.ChineseLunar.monthToLunar(Int(tmp[0])!) + RTTimer.ChineseLunar.dayToLunar(Int(tmp[1])!)
+        /// Parse short date to lunar date, here, the shor date should like "09-11", or you can use
+        /// another character to join month and day, for example: 09月11
+        class func monthToLunar(shortDate: String, joinCharacter: String = "-") -> String {
+            let tmp = shortDate.componentsSeparatedByString(joinCharacter)
+            let res = RTTime.ChineseLunar.monthToLunar(Int(tmp[0])!) + RTTime.ChineseLunar.dayToLunar(Int(tmp[1])!)
             return res
         }
         
-        // Turn day number to Chinese Lunar day.
+        /// Turn day number to Chinese Lunar day.
         class func dayToLunar(day: Int) -> String {
             var res = "err"
             if day <= 10 {
@@ -121,7 +124,7 @@ extension RTTimer {
             return res
         }
         
-        // Turn month number to Chinese Lunar month.
+        /// Turn month number to Chinese Lunar month.
         class func monthToLunar(month: Int) -> String {
             var res = "err"
             if month == 1 {

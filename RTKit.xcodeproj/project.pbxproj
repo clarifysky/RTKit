@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD7A040C1CB8AE4A008C7C1B /* RTMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7A040B1CB8AE4A008C7C1B /* RTMath.swift */; };
+		CD7A040E1CB8B49A008C7C1B /* RTFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7A040D1CB8B49A008C7C1B /* RTFile.swift */; };
+		CD7A04101CB8B5BC008C7C1B /* RTText.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7A040F1CB8B5BC008C7C1B /* RTText.swift */; };
+		CD7A04121CB8B882008C7C1B /* RTView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7A04111CB8B882008C7C1B /* RTView.swift */; };
+		CD7A04141CB8BCBC008C7C1B /* RTAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7A04131CB8BCBC008C7C1B /* RTAnimation.swift */; };
 		CDB612AE1CB77D1D00DD0268 /* RTKit.h in Headers */ = {isa = PBXBuildFile; fileRef = CDB612AD1CB77D1D00DD0268 /* RTKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CDB612B51CB77D1E00DD0268 /* RTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDB612AA1CB77D1D00DD0268 /* RTKit.framework */; };
 		CDB612BA1CB77D1E00DD0268 /* RTKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB612B91CB77D1E00DD0268 /* RTKitTests.swift */; };
@@ -25,6 +30,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CD7A040B1CB8AE4A008C7C1B /* RTMath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RTMath.swift; sourceTree = "<group>"; };
+		CD7A040D1CB8B49A008C7C1B /* RTFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RTFile.swift; sourceTree = "<group>"; };
+		CD7A040F1CB8B5BC008C7C1B /* RTText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RTText.swift; sourceTree = "<group>"; };
+		CD7A04111CB8B882008C7C1B /* RTView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RTView.swift; sourceTree = "<group>"; };
+		CD7A04131CB8BCBC008C7C1B /* RTAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RTAnimation.swift; sourceTree = "<group>"; };
 		CDB612AA1CB77D1D00DD0268 /* RTKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RTKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDB612AD1CB77D1D00DD0268 /* RTKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTKit.h; sourceTree = "<group>"; };
 		CDB612AF1CB77D1D00DD0268 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -79,6 +89,11 @@
 				CDB612AF1CB77D1D00DD0268 /* Info.plist */,
 				CDB612C41CB77DCB00DD0268 /* RTTimer.swift */,
 				CDB612C61CB7B07500DD0268 /* RTNumber.swift */,
+				CD7A040B1CB8AE4A008C7C1B /* RTMath.swift */,
+				CD7A040D1CB8B49A008C7C1B /* RTFile.swift */,
+				CD7A040F1CB8B5BC008C7C1B /* RTText.swift */,
+				CD7A04111CB8B882008C7C1B /* RTView.swift */,
+				CD7A04131CB8BCBC008C7C1B /* RTAnimation.swift */,
 			);
 			path = RTKit;
 			sourceTree = "<group>";
@@ -200,8 +215,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD7A040C1CB8AE4A008C7C1B /* RTMath.swift in Sources */,
+				CD7A040E1CB8B49A008C7C1B /* RTFile.swift in Sources */,
 				CDB612C71CB7B07500DD0268 /* RTNumber.swift in Sources */,
 				CDB612C51CB77DCB00DD0268 /* RTTimer.swift in Sources */,
+				CD7A04141CB8BCBC008C7C1B /* RTAnimation.swift in Sources */,
+				CD7A04121CB8B882008C7C1B /* RTView.swift in Sources */,
+				CD7A04101CB8B5BC008C7C1B /* RTText.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
