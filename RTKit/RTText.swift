@@ -8,11 +8,11 @@
 
 import Foundation
 
-class RTText {
+public class RTText {
     
     /// Make the phone number to be asterisk. This will turn the numbers which start with
     /// the third to the six to be asterisk.
-    class func blurPhone(phone: String) -> String {
+    public class func blurPhone(phone: String) -> String {
         let chars = phone.cStringUsingEncoding(NSUTF8StringEncoding)
         var res = ""
         for i in 0 ..< chars!.count {
@@ -25,19 +25,19 @@ class RTText {
         return res
     }
     
-    class func encodeUrl(url: String) -> String {
+    public class func encodeUrl(url: String) -> String {
         let customAllowedSet = NSCharacterSet(charactersInString: "#%<>@\\^`{|}").invertedSet
         return url.stringByAddingPercentEncodingWithAllowedCharacters(customAllowedSet)!
     }
     
-    class func decodeUrl(url: String) -> String {
+    public class func decodeUrl(url: String) -> String {
         return url.stringByRemovingPercentEncoding!
     }
 }
 
-extension NSRange {
+public extension NSRange {
     /// Make String in swift can use stringByReplacingCharactersInRange
-    func toRange(string: String) -> Range<String.Index> {
+    public func toRange(string: String) -> Range<String.Index> {
         let startIndex = string.startIndex.advancedBy(self.location)
         let endIndex = startIndex.advancedBy(self.length)
         return startIndex..<endIndex

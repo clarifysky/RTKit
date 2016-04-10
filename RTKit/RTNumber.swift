@@ -8,10 +8,10 @@
 
 import Foundation
 
-class RTNumber {
+public class RTNumber {
     /// Prefix zero for specific number. Only when the number is less than 10,
     /// will this function prefix zero for it.
-    class func prefixZero(number: Int) -> String {
+    public class func prefixZero(number: Int) -> String {
         let res = number < 10 ? "0" + String(number) : String(number)
         return res
     }

@@ -7,16 +7,16 @@
 //
 
 import Foundation
-
+import UIKit
 import AVFoundation
 
-class RTAudio: NSObject {
-    var remoteSoundUrl: String? {
+public class RTAudio: NSObject {
+    public var remoteSoundUrl: String? {
         willSet {
             self.soundData = nil
         }
     }
-    var soundFile: String?
+    public var soundFile: String?
     
     private var audioSession: AVAudioSession?
     private lazy var errorPoint: NSErrorPointer? = nil
@@ -24,26 +24,26 @@ class RTAudio: NSObject {
     private var player: AVAudioPlayer?
     /// current audio playing route.
     private lazy var currentRouteSpeaker = false
-    var soundData: NSData?
-    var completionHandler: (() -> Void)?
+    public var soundData: NSData?
+    public var completionHandler: (() -> Void)?
     private var timeStartRecord: Int?
     private var timeStopRecord: Int?
     
     /// Total duration of voice you recorded.
-    var recordedDuration: Int? {
+    public var recordedDuration: Int? {
         get {
             return self.timeStopRecord! - self.timeStartRecord!
         }
     }
     
-    override init() {
+    public override init() {
         super.init()
         if self.audioSession == nil {
             self.audioSession = AVAudioSession.sharedInstance()
         }
     }
     
-    func startRecording(soundFileName: String) {
+    public func startRecording(soundFileName: String) {
         print("recording started...")
         let path = RTFile.appDirectory(.DocumentDirectory, domainMask: .UserDomainMask)
         self.soundFile = path + "/" + soundFileName
@@ -80,7 +80,7 @@ class RTAudio: NSObject {
     }
     
     
-    func stopRecording() {
+    public func stopRecording() {
         self.recorder?.stop()
         self.timeStopRecord = RTTime.time()
     }
@@ -90,7 +90,7 @@ class RTAudio: NSObject {
     ///
     /// - parameter loadingHandler: Processing before remote sound loaded.
     /// - parameter completionHandler: Processing after sound playing finished.
-    func playRemote(loadingHandler: (() -> Void)?) {
+    public func playRemote(loadingHandler: (() -> Void)?) {
         
         // Important: Not all the devices support proximityMonitoring.!!
         // Enable proximity monitoring.
@@ -110,7 +110,7 @@ class RTAudio: NSObject {
     /// Attempt to play local sound.
     ///
     /// - parameter soundPath: Path of sound file in bundle.
-    func playLocal(soundPath: String) {
+    public func playLocal(soundPath: String) {
         print("preparing to play: \(soundPath)")
         // reset player to preparing for next sound.
         self.player = nil
@@ -202,7 +202,7 @@ class RTAudio: NSObject {
     }
     
     // Process observation.
-    func sensorStateChanged(notification: NSNotificationCenter) {
+    public func sensorStateChanged(notification: NSNotificationCenter) {
         // device is close to user
         if UIDevice.currentDevice().proximityState == true {
             do {
@@ -232,23 +232,23 @@ class RTAudio: NSObject {
     }
     
     /// Clear cached data
-    func clear() {
+    public func clear() {
         self.soundFile = nil
         self.soundData = nil
     }
     
     /// Only vibrate the phone when it has been silenced.
-    class func playVibrate() {
+    public class func playVibrate() {
         AudioServicesPlaySystemSound(UInt32(kSystemSoundID_Vibrate))
     }
     
-    class func playSystemSound(id: UInt32 = 1007) {
+    public class func playSystemSound(id: UInt32 = 1007) {
         AudioServicesPlaySystemSound(id)
     }
 }
 
 extension RTAudio: AVAudioPlayerDelegate {
-    func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
+    public func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
         // Close proximityMonitoring when playing finished.
         UIDevice.currentDevice().proximityMonitoringEnabled = false
         self.completionHandler?()
@@ -256,7 +256,7 @@ extension RTAudio: AVAudioPlayerDelegate {
 }
 
 extension RTAudio: AVAudioRecorderDelegate {
-    func audioRecorderDidFinishRecording(recorder: AVAudioRecorder, successfully flag: Bool) {
+    public func audioRecorderDidFinishRecording(recorder: AVAudioRecorder, successfully flag: Bool) {
         self.completionHandler?()
     }
 }

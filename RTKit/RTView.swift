@@ -9,23 +9,23 @@
 import Foundation
 import WebKit
 
-class RTView {
+public class RTView {
     
-    class func viewController(storyboardName: String, storyboardID: String) -> UIViewController {
+    public class func viewController(storyboardName: String, storyboardID: String) -> UIViewController {
         return UIStoryboard(name: storyboardName, bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier(storyboardID)
     }
     
-    class Pop: UIView {
+    public class Pop: UIView {
         
-        lazy var messageLabel = UILabel()
+        public lazy var messageLabel = UILabel()
         private var timer: NSTimer?
-        var ticking: Bool = true {
+        public var ticking: Bool = true {
             willSet {
                 self.whetherTick(newValue)
             }
         }
         
-        init(frame: CGRect, message: String?, ticked: Bool = true) {
+        public init(frame: CGRect, message: String?, ticked: Bool = true) {
             super.init(frame: frame)
             self.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.7)
             self.layer.cornerRadius = 10
@@ -44,7 +44,7 @@ class RTView {
             self.whetherTick(ticked)
         }
         
-        required init?(coder aDecoder: NSCoder) {
+        required public init?(coder aDecoder: NSCoder) {
             fatalError("init(coder:) has not been implemented")
         }
         
@@ -65,7 +65,7 @@ class RTView {
 }
 
 /// Used to identify where the badge will show.
-enum BadgePosition {
+public enum BadgePosition {
     case TopLeft
     case TopMiddle
     case TopRight
@@ -76,9 +76,9 @@ enum BadgePosition {
     case RightMiddle
 }
 
-extension UIView {
+public extension UIView {
     /// Take a snapshot of current view.
-    func snapshot() -> UIImage? {
+    public func snapshot() -> UIImage? {
         if(UIGraphicsGetCurrentContext() == nil) {
             UIGraphicsBeginImageContextWithOptions(self.frame.size, false, 0.0)
         } else {
@@ -97,7 +97,7 @@ extension UIView {
     ///
     /// It will pass parent layer's contens to sub layer, then set parent layer's
     /// contens to nil, then add sub layer to the layer hierachy.
-    func curveShadow(cornerRadius: CGFloat) {
+    public func curveShadow(cornerRadius: CGFloat) {
         let shapeLayer = CALayer()
         shapeLayer.frame = self.layer.bounds
         shapeLayer.cornerRadius = cornerRadius
@@ -117,7 +117,7 @@ extension UIView {
     /// - parameter number: The number which will be show in the red dot. 0 means nothing will be shown, 
     ///   in this case, the badge may be a very small dot.
     /// - parameter position: The position of badge.
-    func badge(number: Int = 0, position: BadgePosition = .TopRight) -> UILabel {
+    public func badge(number: Int = 0, position: BadgePosition = .TopRight) -> UILabel {
         var size = CGSizeMake(10, 10)
         var text = String(number)
         
@@ -178,18 +178,18 @@ extension UIView {
     }
 }
 
-extension UILabel {
+public extension UILabel {
     
-    func boldFont() {
+    public func boldFont() {
         let currentFont = self.font
         let newFont = UIFont(name: currentFont.fontName + "-Bold", size: currentFont.pointSize)
         self.font = newFont
     }
 }
 
-extension WKWebView {
+public extension WKWebView {
     /// Take a snapshot of current WKWebView.
-    override func snapshot() -> UIImage? {
+    public override func snapshot() -> UIImage? {
         if(UIGraphicsGetCurrentContext() == nil) {
             UIGraphicsBeginImageContextWithOptions(self.frame.size, false, 0.0)
         } else {
@@ -206,9 +206,9 @@ extension WKWebView {
     }
 }
 
-extension UIImage{
+public extension UIImage{
     /// Get new UIImage which alpha value as you specified.
-    func alpha(value: CGFloat) -> UIImage{
+    public func alpha(value: CGFloat) -> UIImage{
         UIGraphicsBeginImageContextWithOptions(self.size, false, 0.0)
         
         let ctx = UIGraphicsGetCurrentContext();
@@ -227,7 +227,7 @@ extension UIImage{
     }
     
     /// Scale image.
-    func scale(newSize: CGSize) -> UIImage {
+    public func scale(newSize: CGSize) -> UIImage {
         UIGraphicsBeginImageContext(newSize)
         drawInRect(CGRectMake(0, 0, newSize.width, newSize.height))
         let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
@@ -236,17 +236,17 @@ extension UIImage{
     }
 }
 
-enum CurveShadowSide {
+public enum CurveShadowSide {
     case Top
     case Left
     case Bottom
     case Right
 }
 
-extension CALayer {
+public extension CALayer {
     /// Add a curve shadow to specific layer according to the side you specified.
     /// If you want to show shadow on both left and right side, or more, you could use more than one layer to achieve this goal.
-    func curveShadow(side: CurveShadowSide, color: UIColor? = nil, shadowOpacity: Float = 1.0, archHeight: CGFloat = 5) {
+    public func curveShadow(side: CurveShadowSide, color: UIColor? = nil, shadowOpacity: Float = 1.0, archHeight: CGFloat = 5) {
         var startPoint: CGPoint,  endPoint: CGPoint, controlPoint: CGPoint, shadowOffset: CGSize
         switch side {
         case .Top:
@@ -286,23 +286,23 @@ extension CALayer {
     }
 }
 
-extension UINavigationBar {
+public extension UINavigationBar {
     
     /// Make navigation bar to be complete transparent.
-    func totalTransparent() {
+    public func totalTransparent() {
         self.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
         self.shadowImage = UIImage()
     }
     
     /// Set a transparent color to navigation bar.
-    func transparentBgColor(backgroundColor: UIColor?) {
+    public func transparentBgColor(backgroundColor: UIColor?) {
         self.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
         self.shadowImage = UIImage()
         self.backgroundColor = backgroundColor
     }
     
     /// Set an opaque color to navigation bar.
-    func opaqueBgColor(backgroundColor: UIColor) {
+    public func opaqueBgColor(backgroundColor: UIColor) {
         self.translucent = false
         self.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
         self.barTintColor = backgroundColor
@@ -310,18 +310,18 @@ extension UINavigationBar {
     }
 }
 
-extension UIColor {
+public extension UIColor {
     
-    class func colorWithRGBOpaque (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) -> UIColor {
+    public class func colorWithRGBOpaque (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) -> UIColor {
         return UIColor(red: red, green: green, blue: blue, alpha: alpha)
     }
     
-    class func colorWithRGB (red: CGFloat, green: CGFloat, blue: CGFloat) -> UIColor {
+    public class func colorWithRGB (red: CGFloat, green: CGFloat, blue: CGFloat) -> UIColor {
         return UIColor(red: red, green: green, blue: blue, alpha: 1.0)
     }
     
     /// Get the uiimage as you specified color.
-    class func imageWithColor(color :UIColor) -> UIImage {
+    public class func imageWithColor(color :UIColor) -> UIImage {
         let rect = CGRectMake(0, 0, 1, 1)
         UIGraphicsBeginImageContextWithOptions(rect.size, false, 0)
         color.setFill()
@@ -331,7 +331,7 @@ extension UIColor {
         return image
     }
     
-    class func colorWithRGBHex(hex: Int, alpha: Float = 1.0) -> UIColor {
+    public class func colorWithRGBHex(hex: Int, alpha: Float = 1.0) -> UIColor {
         let r = Float((hex >> 16) & 0xFF)
         let g = Float((hex >> 8) & 0xFF)
         let b = Float((hex) & 0xFF)

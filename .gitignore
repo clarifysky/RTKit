@@ -10,6 +10,8 @@
 ## Build generated
 build/
 DerivedData
+Products
+buildProducts
 
 ## Various settings
 *.pbxuser

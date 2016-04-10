@@ -7,10 +7,11 @@
 //
 
 import Foundation
+import UIKit
 
-class RTTopWindow: UIWindow {
+public class RTTopWindow: UIWindow {
     
-    init() {
+    public init() {
         super.init(frame: UIScreen.mainScreen().bounds)
         self.hidden = false
         self.windowLevel = UIWindowLevelAlert
@@ -18,11 +19,11 @@ class RTTopWindow: UIWindow {
         self.rootViewController = UIViewController()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func revoke() {
+    public func revoke() {
         self.windowLevel = UIWindowLevelAlert - 1
         self.removeFromSuperview()
     }

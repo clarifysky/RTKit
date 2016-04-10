@@ -8,10 +8,10 @@
 
 import Foundation
 
-class RTTime {
+public class RTTime {
     
     /// Get the timestamp since 1970.
-    class func time() -> Int {
+    public class func time() -> Int {
         let date = NSDate()
         
         // You need not set timezone here, because 1970 and current time are both use UTC time.
@@ -23,7 +23,7 @@ class RTTime {
     ///
     /// - parameter format The format you want to use.
     /// - parameter interval The unix time which will be formatted.
-    class func formatUnixTime(format: String, interval: Int) -> String {
+    public class func formatUnixTime(format: String, interval: Int) -> String {
         let date = NSDate(timeIntervalSince1970: NSTimeInterval(interval))
         let formatter = NSDateFormatter()
         formatter.dateFormat = format
@@ -35,7 +35,7 @@ class RTTime {
     /// - parameter date: The date you want to format.
     /// - parameter format: Format.
     /// - parameter timeZone: The time zone you want to used for.
-    class func formatDate(date: NSDate, format: String, timeZone: String = "Asia/Shanghai") -> String {
+    public class func formatDate(date: NSDate, format: String, timeZone: String = "Asia/Shanghai") -> String {
         let timeZone = NSTimeZone(name: timeZone)
         let fmt = NSDateFormatter()
         fmt.dateFormat = format
@@ -49,7 +49,7 @@ class RTTime {
     /// - parameter timeStr: Time string.
     /// - parameter format: The format of the time string.
     /// - parameter timeZone: The time zone will be used for this parser.
-    class  func toUnixTime(timeStr: String, format: String, timeZone: String = "Asia/Shanghai") -> NSTimeInterval {
+    public class  func toUnixTime(timeStr: String, format: String, timeZone: String = "Asia/Shanghai") -> NSTimeInterval {
         let fmt = NSDateFormatter()
         fmt.dateFormat = format
         let timeZone = NSTimeZone(name: timeZone)
@@ -60,12 +60,12 @@ class RTTime {
 }
 
 // Extend DateProc to add Chinese Lunar processing
-extension RTTime {
-    class ChineseLunar {
-        static let lunarNumber = ["一", "二", "三", "四", "五", "六", "七", "八", "九", "十"]
+public extension RTTime {
+    public class ChineseLunar {
+        private static let lunarNumber = ["一", "二", "三", "四", "五", "六", "七", "八", "九", "十"]
         
         /// Lunar date of today.
-        class func lunarDate() -> String {
+        public class func lunarDate() -> String {
             let fmt = NSDateFormatter()
             fmt.locale = NSLocale(localeIdentifier: "zh_CN")
             fmt.dateStyle = NSDateFormatterStyle.MediumStyle
@@ -78,7 +78,7 @@ extension RTTime {
         }
         
         /// Lunar date of specific day.
-        class func lunarDate(date: NSDate) -> String {
+        public class func lunarDate(date: NSDate) -> String {
             let fmt = NSDateFormatter()
             fmt.locale = NSLocale(localeIdentifier: "zh_CN")
             fmt.dateStyle = NSDateFormatterStyle.MediumStyle
@@ -92,14 +92,14 @@ extension RTTime {
         
         /// Parse short date to lunar date, here, the shor date should like "09-11", or you can use
         /// another character to join month and day, for example: 09月11
-        class func monthToLunar(shortDate: String, joinCharacter: String = "-") -> String {
+        public class func monthToLunar(shortDate: String, joinCharacter: String = "-") -> String {
             let tmp = shortDate.componentsSeparatedByString(joinCharacter)
             let res = RTTime.ChineseLunar.monthToLunar(Int(tmp[0])!) + RTTime.ChineseLunar.dayToLunar(Int(tmp[1])!)
             return res
         }
         
         /// Turn day number to Chinese Lunar day.
-        class func dayToLunar(day: Int) -> String {
+        public class func dayToLunar(day: Int) -> String {
             var res = "err"
             if day <= 10 {
                 res = "初"+self.lunarNumber[day-1]
@@ -125,7 +125,7 @@ extension RTTime {
         }
         
         /// Turn month number to Chinese Lunar month.
-        class func monthToLunar(month: Int) -> String {
+        public class func monthToLunar(month: Int) -> String {
             var res = "err"
             if month == 1 {
                 res = "正"

@@ -7,14 +7,15 @@
 //
 
 import Foundation
+import UIKit
 
-class RTAnimation {
-    class Transition {
+public class RTAnimation {
+    public class Transition {
 
     }
 }
 
-enum TransitionAction {
+public enum TransitionAction {
     case Immediately
     case Left
     case Right
@@ -24,9 +25,9 @@ enum TransitionAction {
     case FadeOut
 }
 
-extension UIViewController {
+public extension UIViewController {
     /// Show one view controller immediately.
-    func show(toVC: UIViewController?, fromVC: UIViewController?, completion: ((Bool) -> Void)? ) {
+    public func show(toVC: UIViewController?, fromVC: UIViewController?, completion: ((Bool) -> Void)? ) {
         let finalToFrame: CGRect = UIScreen.mainScreen().bounds
         self.transitionFromViewController(fromVC!, toViewController: toVC!, duration: 0, options: [], animations: {
             toVC!.view.frame = finalToFrame
@@ -34,7 +35,7 @@ extension UIViewController {
     }
     
     /// Swipe a vc according to TransitionAction.
-    func swipe(toVC: UIViewController, fromVC: UIViewController, direction: TransitionAction, duration: NSTimeInterval, options: UIViewAnimationOptions, completion: ((Bool) -> Void)?) {
+    public func swipe(toVC: UIViewController, fromVC: UIViewController, direction: TransitionAction, duration: NSTimeInterval, options: UIViewAnimationOptions, completion: ((Bool) -> Void)?) {
         let screenBounds = UIScreen.mainScreen().bounds
         let finalToFrame = screenBounds
         
@@ -73,7 +74,7 @@ extension UIViewController {
     ///
     /// - parameter message: Message to show.
     /// - parameter ticked: Auto removeself or not, set true will remove self automatically, default is true
-    func showPop(message: String?, ticked: Bool = true) -> RTView.Pop {
+    public func showPop(message: String?, ticked: Bool = true) -> RTView.Pop {
         let popWidth = UIScreen.mainScreen().bounds.width / 2
         let popHeight: CGFloat = 100
         let popOrigin = RTMath.centerOrigin(UIScreen.mainScreen().bounds.size, childSize: CGSizeMake(popWidth, popHeight))
