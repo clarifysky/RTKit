@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD4BFE061CBA2C4A00A5FD80 /* RTWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4BFE051CBA2C4A00A5FD80 /* RTWindow.swift */; };
+		CD4BFE081CBA367D00A5FD80 /* RTAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4BFE071CBA367D00A5FD80 /* RTAudio.swift */; };
 		CD7A040C1CB8AE4A008C7C1B /* RTMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7A040B1CB8AE4A008C7C1B /* RTMath.swift */; };
 		CD7A040E1CB8B49A008C7C1B /* RTFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7A040D1CB8B49A008C7C1B /* RTFile.swift */; };
 		CD7A04101CB8B5BC008C7C1B /* RTText.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7A040F1CB8B5BC008C7C1B /* RTText.swift */; };
@@ -30,6 +32,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CD4BFE051CBA2C4A00A5FD80 /* RTWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RTWindow.swift; sourceTree = "<group>"; };
+		CD4BFE071CBA367D00A5FD80 /* RTAudio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RTAudio.swift; sourceTree = "<group>"; };
 		CD7A040B1CB8AE4A008C7C1B /* RTMath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RTMath.swift; sourceTree = "<group>"; };
 		CD7A040D1CB8B49A008C7C1B /* RTFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RTFile.swift; sourceTree = "<group>"; };
 		CD7A040F1CB8B5BC008C7C1B /* RTText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RTText.swift; sourceTree = "<group>"; };
@@ -64,6 +68,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CD4BFE041CBA2C2D00A5FD80 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CD7A04111CB8B882008C7C1B /* RTView.swift */,
+				CD4BFE051CBA2C4A00A5FD80 /* RTWindow.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		CDB612A01CB77D1D00DD0268 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +98,7 @@
 		CDB612AC1CB77D1D00DD0268 /* RTKit */ = {
 			isa = PBXGroup;
 			children = (
+				CD4BFE041CBA2C2D00A5FD80 /* View */,
 				CDB612AD1CB77D1D00DD0268 /* RTKit.h */,
 				CDB612AF1CB77D1D00DD0268 /* Info.plist */,
 				CDB612C41CB77DCB00DD0268 /* RTTimer.swift */,
@@ -92,8 +106,8 @@
 				CD7A040B1CB8AE4A008C7C1B /* RTMath.swift */,
 				CD7A040D1CB8B49A008C7C1B /* RTFile.swift */,
 				CD7A040F1CB8B5BC008C7C1B /* RTText.swift */,
-				CD7A04111CB8B882008C7C1B /* RTView.swift */,
 				CD7A04131CB8BCBC008C7C1B /* RTAnimation.swift */,
+				CD4BFE071CBA367D00A5FD80 /* RTAudio.swift */,
 			);
 			path = RTKit;
 			sourceTree = "<group>";
@@ -222,6 +236,8 @@
 				CD7A04141CB8BCBC008C7C1B /* RTAnimation.swift in Sources */,
 				CD7A04121CB8B882008C7C1B /* RTView.swift in Sources */,
 				CD7A04101CB8B5BC008C7C1B /* RTText.swift in Sources */,
+				CD4BFE061CBA2C4A00A5FD80 /* RTWindow.swift in Sources */,
+				CD4BFE081CBA367D00A5FD80 /* RTAudio.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

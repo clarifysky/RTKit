@@ -21,4 +21,9 @@ class RTFile {
         }
         return errorPointer
     }
+    
+    class func appDirectory(directory: NSSearchPathDirectory, domainMask: NSSearchPathDomainMask) -> String {
+        let path = NSSearchPathForDirectoriesInDomains(directory, domainMask, true)
+        return path[0]
+    }
 }

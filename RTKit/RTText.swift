@@ -24,4 +24,22 @@ class RTText {
         }
         return res
     }
+    
+    class func encodeUrl(url: String) -> String {
+        let customAllowedSet = NSCharacterSet(charactersInString: "#%<>@\\^`{|}").invertedSet
+        return url.stringByAddingPercentEncodingWithAllowedCharacters(customAllowedSet)!
+    }
+    
+    class func decodeUrl(url: String) -> String {
+        return url.stringByRemovingPercentEncoding!
+    }
+}
+
+extension NSRange {
+    /// Make String in swift can use stringByReplacingCharactersInRange
+    func toRange(string: String) -> Range<String.Index> {
+        let startIndex = string.startIndex.advancedBy(self.location)
+        let endIndex = startIndex.advancedBy(self.length)
+        return startIndex..<endIndex
+    }
 }
