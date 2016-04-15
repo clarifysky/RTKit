@@ -28,3 +28,21 @@ public class RTTopWindow: UIWindow {
         self.removeFromSuperview()
     }
 }
+
+
+public class RTWindow {
+    
+    public class func keyWindow() -> UIWindow? {
+        return UIApplication.sharedApplication().keyWindow
+    }
+    
+    public class func sharedTopWindow() -> RTTopWindow {
+        var sharedTopWindow: RTTopWindow?
+        var onceToken: dispatch_once_t = 0
+        dispatch_once(&onceToken, {
+            sharedTopWindow = RTTopWindow()
+        })
+        return sharedTopWindow!
+    }
+    
+}
