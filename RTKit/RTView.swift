@@ -177,8 +177,8 @@ public extension UIView {
         return badge
     }
     
-    /// Set the border for specific view.
-    public func setBorder(borderColor: CGColor, borderWidth: CGFloat) {
+    /// Set border for current view.
+    public func setBorder(borderColor: CGColor?, borderWidth: CGFloat) {
         self.layer.borderColor = borderColor
         self.layer.borderWidth = borderWidth
     }
@@ -220,12 +220,12 @@ public extension UIView {
     
     /// Set value of x axis of current view based on its superView.
     public func setX(x: CGFloat) {
-        self.frame.origin = CGPointMake(x, self.origin.y)
+        self.frame.origin = CGPointMake(x, self.y)
     }
     
     /// Set value of y axis of current view based on its superView.
     public func setY(y: CGFloat) {
-        self.frame.origin = CGPointMake(self.origin.x, y)
+        self.frame.origin = CGPointMake(self.x, y)
     }
     
     /// Set origin for current view based on its superView.
