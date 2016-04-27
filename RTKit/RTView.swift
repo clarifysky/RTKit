@@ -176,6 +176,81 @@ public extension UIView {
         self.addSubview(badge)
         return badge
     }
+    
+    /// Set the border for specific view.
+    public func setBorder(borderColor: CGColor, borderWidth: CGFloat) {
+        self.layer.borderColor = borderColor
+        self.layer.borderWidth = borderWidth
+    }
+    
+    /// Width of current view's frame.
+    public var width: CGFloat {
+        return self.frame.width
+    }
+    
+    /// Height of current view's frame.
+    public var height: CGFloat {
+        return self.frame.height
+    }
+    
+    /// Origin of current view based on its superView.
+    public var origin: CGPoint {
+        return self.frame.origin
+    }
+    
+    /// Value of x axis of current view based on its superView.
+    public var x: CGFloat {
+        return self.origin.x
+    }
+    
+    /// Value of x axis of current view's right edge.
+    public var xRight: CGFloat {
+        return self.x + self.width
+    }
+    
+    /// Value of y axis of current view based on its superView.
+    public var y: CGFloat {
+        return self.origin.y
+    }
+    
+    /// Value of y axis of current view's bottom edge.
+    public var yBottom: CGFloat {
+        return self.y + self.height
+    }
+    
+    /// Set value of x axis of current view based on its superView.
+    public func setX(x: CGFloat) {
+        self.frame.origin = CGPointMake(x, self.origin.y)
+    }
+    
+    /// Set value of y axis of current view based on its superView.
+    public func setY(y: CGFloat) {
+        self.frame.origin = CGPointMake(self.origin.x, y)
+    }
+    
+    /// Set origin for current view based on its superView.
+    public func setOrigin(origin: CGPoint) {
+        self.frame.origin = origin
+    }
+    
+    public func setOrigin(x: CGFloat, y: CGFloat) {
+        self.setOrigin(CGPointMake(x, y))
+    }
+    
+    /// Set width for current view.
+    public func setWidth(width: CGFloat) {
+        self.frame = CGRectMake(self.x, self.y, width, self.height)
+    }
+    
+    /// Set height for current view.
+    public func setHeight(height: CGFloat) {
+        self.frame = CGRectMake(self.x, self.y, self.width, height)
+    }
+    
+    /// Set size for current view.
+    public func setSize(size: CGSize) {
+        self.frame = CGRect(origin: self.origin, size: size)
+    }
 }
 
 public extension UILabel {
