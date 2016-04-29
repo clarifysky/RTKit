@@ -28,6 +28,7 @@
 		CD7A04101CB8B5BC008C7C1B /* RTText.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7A040F1CB8B5BC008C7C1B /* RTText.swift */; };
 		CD7A04121CB8B882008C7C1B /* RTView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7A04111CB8B882008C7C1B /* RTView.swift */; };
 		CD7A04141CB8BCBC008C7C1B /* RTAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7A04131CB8BCBC008C7C1B /* RTAnimation.swift */; };
+		CDA79E551CD3456600DB5ABD /* RTBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA79E541CD3456600DB5ABD /* RTBorder.swift */; };
 		CDB612B51CB77D1E00DD0268 /* RTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDB612AA1CB77D1D00DD0268 /* RTKit.framework */; };
 		CDB612BA1CB77D1E00DD0268 /* RTKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB612B91CB77D1E00DD0268 /* RTKitTests.swift */; };
 		CDB612C51CB77DCB00DD0268 /* RTTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB612C41CB77DCB00DD0268 /* RTTimer.swift */; };
@@ -52,6 +53,7 @@
 		CD7A040F1CB8B5BC008C7C1B /* RTText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RTText.swift; sourceTree = "<group>"; };
 		CD7A04111CB8B882008C7C1B /* RTView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RTView.swift; sourceTree = "<group>"; };
 		CD7A04131CB8BCBC008C7C1B /* RTAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RTAnimation.swift; sourceTree = "<group>"; };
+		CDA79E541CD3456600DB5ABD /* RTBorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RTBorder.swift; sourceTree = "<group>"; };
 		CDB612AA1CB77D1D00DD0268 /* RTKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RTKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDB612AF1CB77D1D00DD0268 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CDB612B41CB77D1E00DD0268 /* RTKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RTKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,6 +87,7 @@
 			children = (
 				CD7A04111CB8B882008C7C1B /* RTView.swift */,
 				CD4BFE051CBA2C4A00A5FD80 /* RTWindow.swift */,
+				CDA79E541CD3456600DB5ABD /* RTBorder.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				CDB612C71CB7B07500DD0268 /* RTNumber.swift in Sources */,
 				CDB612C51CB77DCB00DD0268 /* RTTimer.swift in Sources */,
 				CD7A04141CB8BCBC008C7C1B /* RTAnimation.swift in Sources */,
+				CDA79E551CD3456600DB5ABD /* RTBorder.swift in Sources */,
 				CD7A04121CB8B882008C7C1B /* RTView.swift in Sources */,
 				CD7A04101CB8B5BC008C7C1B /* RTText.swift in Sources */,
 				CD4BFE061CBA2C4A00A5FD80 /* RTWindow.swift in Sources */,
@@ -464,6 +468,7 @@
 				CD4BFE4F1CBA4D1F00A5FD80 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CDB612A41CB77D1D00DD0268 /* Build configuration list for PBXProject "RTKit" */ = {
 			isa = XCConfigurationList;
